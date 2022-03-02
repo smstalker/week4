@@ -1,3 +1,3 @@
 # week5
 Promineo bootcamp week5 assignment
-Assignement is to create a simple Menu App. 
+Assignment is to create a simple Menu App. 
