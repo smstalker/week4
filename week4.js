@@ -100,7 +100,7 @@ class Menu {
              this.selectedDepartment = this.departments[index];
              let description = 'Department Name :' + this.selectedDepartment.name + '\n';
          
-            for (let i = 0; i < this.selectedDepartment.lentgh; i ++) {
+            for (let i = 0; i < this.selectedDepartment.length; i ++) {
                 description += i + ') ' + this.selectedDepartment.vehicle[i].name + ' - ' + this.selectedDepartment.vehicle[i].model + '/n'; 
             }
 
@@ -115,7 +115,6 @@ class Menu {
             }
         }
      }
-
 }
 
 let menu = new Menu();
