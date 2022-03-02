@@ -98,10 +98,10 @@ class Menu {
          let index = prompt('Enter index number of department you wish to view:');
          if (index > -1 && index < this.departments.length) {
              this.selectedDepartment = this.departments[index];
-             let description = 'Department Name :' + this.selectedDepartment.name + '\n';
+             let description = 'Department Name : ' + this.selectedDepartment.name + '\n';
          
-            for (let i = 0; i < this.selectedDepartment.length; i ++) {
-                description += i + ') ' + this.selectedDepartment.vehicle[i].name + ' - ' + this.selectedDepartment.vehicle[i].model + '/n'; 
+            for (let i = 0; i < this.selectedDepartment.vehicles.length; i ++) {
+                description += i + ') ' + this.selectedDepartment.vehicles[i].year + ' - ' + this.selectedDepartment.vehicles[i].model + '\n';
             }
 
             let selection = this.showDepartmentMenuOptions(description);
@@ -115,7 +115,28 @@ class Menu {
             }
         }
      }
+
+     deleteDepartment() { 
+        let index = prompt ('Enter the index of the Department you wish to delete');
+        if (index > -1 && index < this.departments.length) {
+            this.departments.splice(index, 1);
+            }
+        }
+
+    createVehicle() {
+        let model = prompt ('Enter model name of new vehicle:');
+        let year = prompt ('Enter the model year the vehicle:');
+        this.selectedDepartment.vehicles.push(new Vehicle(model, year));
+        }
+
+    deleteVehicle() {
+        let index = prompt('Enter the index number of the vehicle you wish to delete');
+        if (index > -1 && index < this.selectedDepartment.vehicles.length) {
+            this.selectedDepartment.vehicles.splice(index, 1);
+        }
+    }
 }
+
 
 let menu = new Menu();
 menu.start();
