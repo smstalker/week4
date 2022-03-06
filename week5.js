@@ -1,5 +1,5 @@
-//This app will enable users to track vehicles in a fleet program 
-
+//This app will enable users to track vehicles in a citywide fleet program. This will alow the city planners to track aging fleet vehicles 
+// Class Vehicle will hold the model name and year the vehicle was made. 
 class Vehicle {
     constructor(year, model){
         this.year = year;
@@ -10,7 +10,7 @@ class Vehicle {
         return `${this.model} was made in ${this.year}.`;
     }
 }
-
+// The Department class with denote which department within the city the vehicle belongs too. It will give the user an Error if what they enter is not an instance of vehicle. 
 class Department {
     constructor(name) {
         this.name = name;
@@ -24,10 +24,10 @@ class Department {
     }
 } 
 describe(){
-return `${this.name} has ${this.vehicles.length} vehicles.`
+return `${this.name} Department has ${this.vehicles.length} vehicles.`
    } 
 }
-
+// Build out the user Menu, for creating, viewing, deleting, and displaing all departments. 
 class Menu {
     constructor(){
         this.departments = [];
@@ -69,7 +69,7 @@ class Menu {
             4) display all departments
         `);
     }
-
+// This menu will be a sub menu in the View Department choice which will allow the user to create, or delete the vehicles within each department. 
     showDepartmentMenuOptions (departmentInfo) {
         return prompt(`
             0) back
@@ -80,7 +80,7 @@ class Menu {
             `);
 
     }
-
+//This diplays all created departments. 
     displayDepartments() {
         let departmentString = '';
         for (let i= 0; i < this.departments.length; i++) {
@@ -88,12 +88,12 @@ class Menu {
         }
         alert(departmentString);
     }
-   
+   //Create a new department 
     createDepartment() {
         let name = prompt('Enter name of new department:');
         this.departments.push(new Department(name));
      }
-
+//View Department, and will display any vheicles created under that department. 
      viewDepartment() {
          let index = prompt('Enter index number of department you wish to view:');
          if (index > -1 && index < this.departments.length) {
@@ -115,14 +115,14 @@ class Menu {
             }
         }
      }
-
+// Delete any department using the index number for that department 
      deleteDepartment() { 
         let index = prompt ('Enter the index of the Department you wish to delete');
         if (index > -1 && index < this.departments.length) {
             this.departments.splice(index, 1);
             }
         }
-
+//Thesse will create and delete vehicles respectively. 
     createVehicle() {
         let model = prompt ('Enter model name of new vehicle:');
         let year = prompt ('Enter the model year the vehicle:');
